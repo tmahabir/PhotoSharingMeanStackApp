@@ -1,12 +1,15 @@
-<h1> All Images </h1>
-<hr />
-<div *ngIf="images.length > 0">
-  <div *ngFor="let image of images" class="image">
-    <img [src]="image.filePath" [alt]="image.name">
-    <div>
-      <span>{{ image.name }}</span>
-      <span>Posted by {{ image.postedBy }}</span>
-      <button (click) = "onDelete(image.filePath)" > DELETE </button>
+<div class="container">
+  <h1> All Images </h1>
+  <hr />
+  <body>
+    <div *ngIf="images.length > 0">
+      <div *ngFor="let image of images" class="image">
+        <div class="gallery">
+          <img [src]="image.filePath" [alt]="image.name">
+          <div class="desc">Image: {{ image.name }}</div>
+          <div class="desc">Posted by {{ image.postedBy }}</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </body>
 </div>

@@ -24,8 +24,4 @@ export class ShowComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     this.imageSubscription.unsubscribe();
   }
-
-  onDelete(filePath: string){
-    this.imageService.deleteImage(filePath);
-  }
 }
