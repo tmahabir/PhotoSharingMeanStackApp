@@ -24,7 +24,7 @@
               <img [src]="image.filePath" [alt]="image.name">
               <div class="desc">Image: {{ image.name }}</div>
               <div class="desc">
-                <button (click) = "onDelete(image.filePath)" > DELETE </button>
+                <button class="button" (click) = "onDelete(image.name)" > DELETE </button>
               </div>
             </div>
           </div>

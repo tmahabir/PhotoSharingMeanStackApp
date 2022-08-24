@@ -22,6 +22,6 @@ router.post('/login', ctrlAuth.login);
 //image
 router.get('/images', ctrlImage.showImages);
 router.post('/images', storage, ctrlImage.uploadImage);
-router.delete('/images/:filePath', ctrlImage.deleteImage);
+router.delete('/images/:name', ctrlImage.deleteImage);
 
 module.exports = router;

@@ -9,7 +9,7 @@ module.exports.showImages = async (req, res) => {
 }
 
 module.exports.deleteImage = async (req, res) => {
-    const image = await Image.deleteOne( {filePath: req.params.filePath} );
+    const image = await Image.deleteOne( {name: req.params.name} );
     res.status(200).json({image});
 
 }

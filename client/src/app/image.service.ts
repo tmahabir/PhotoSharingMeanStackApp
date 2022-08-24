@@ -49,10 +49,10 @@ export class ImageService {
       });
   }
 
-  deleteImage(filePath: string) {
-    this.http.delete(filePath)
+  deleteImage(name: string) {
+    this.http.delete(this.url+'/'+name)
     .subscribe(()=>{
-      const updatedPosts = this.images.filter(image=>image.filePath!==filePath);
+      const updatedPosts = this.images.filter(image=>image.name!==name);
         this.images=updatedPosts;
         this.images$.next([...this.images]);
     });
