@@ -1,14 +1,16 @@
 <div class="container">
-  <h1> Upload Image </h1>
+  <h1> Upload An Image! </h1>
   <hr>
 
   <form [formGroup]="form" (submit)="onSubmit()">
     <div>
-      <input formControlName="name" type="text" placeholder="Enter name...">
+      <input formControlName="name" type="text" placeholder="Name of your image">
     </div>
+    <br>
     <div>
       <input (change)="onFileSelect($event)" type="file">
     </div>
+    <br>
     <div *ngIf="imageData">
       <img [src]="imageData" [alt]="form.value.name">
     </div>

@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1 class="form-signin-heading">Your profile</h1>
+      <h1 class="form-signin-heading">Here's your profile information!</h1>
+      <hr/>
 
       <div class="form-horizontal">
         <div class="form-group">
@@ -13,6 +14,8 @@
           <p class="form-control-static">{{ details?.email }}</p>
         </div>
       </div>
+      <h2>Your uploaded images</h2>
+      <hr/>
 
       <div *ngIf="images.length > 0">
         <div *ngFor="let image of images" class="image">
@@ -20,7 +23,6 @@
             <div class="gallery">
               <img [src]="image.filePath" [alt]="image.name">
               <div class="desc">Image: {{ image.name }}</div>
-              <div class="desc">Posted by {{ image.postedBy }}</div>
               <div class="desc">
                 <button (click) = "onDelete(image.filePath)" > DELETE </button>
               </div>
