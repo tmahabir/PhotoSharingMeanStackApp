@@ -5,6 +5,7 @@
     <img [src]="image.filePath" [alt]="image.name">
     <div>
       <span>{{ image.name }}</span>
+      <span>Posted by {{ image.postedBy }}</span>
       <button (click) = "onDelete(image.filePath)" > DELETE </button>
     </div>
   </div>

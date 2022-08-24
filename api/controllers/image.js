@@ -15,12 +15,14 @@ module.exports.deleteImage = async (req, res) => {
 }
 
 module.exports.uploadImage = async (req, res) => {
-    const { name } = req.body;
+    const name = req.body.name;
+    const postedBy = req.body.postedBy;
     const filePath = 'http://localhost:4200/images/' + req.file.filename; //this will be filePath value
 
     const image = new Image({
         name,
-        filePath
+        filePath,
+        postedBy,
     });
     const createdImage = await image.save();
     res.status(201).json({

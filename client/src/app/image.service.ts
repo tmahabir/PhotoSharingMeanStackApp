@@ -31,16 +31,18 @@ export class ImageService {
     return this.images$.asObservable();
   }
 
-  addImage(name: string, image: File): void {
+  addImage(name: string, image: File, postedBy: string): void {
     const imageData = new FormData();
     imageData.append("name", name);
     imageData.append("image", image, name); //could remove name as third parameter so that the filepath is not based on name input
+    imageData.append("postedBy", postedBy);
     this.http.post<{image: Image}>(this.url, imageData)
       .subscribe((imageData) => {
         const image: Image = {
           _id: imageData.image._id,
           name: name,
-          filePath: imageData.image.filePath
+          filePath: imageData.image.filePath,
+          postedBy: postedBy
         };
         this.images.push(image);
         this.images$.next(this.images);

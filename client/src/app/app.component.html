@@ -10,8 +10,8 @@
           <a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a>
         </li>
         <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
-        <li><a routerLink="/upload">Upload</a></li>
-        <li><a routerLink="/show">Images</a></li>
+        <li *ngIf="auth.isLoggedIn()"><a routerLink="/upload">Upload</a></li>
+        <li *ngIf="auth.isLoggedIn()"><a routerLink="/show">Images</a></li>
       </ul>
     </div>
   </div>

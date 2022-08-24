@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 import { ImageService } from '../image.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class UploadComponent implements OnInit{
   imageData: string;
 
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -39,7 +40,7 @@ export class UploadComponent implements OnInit{
   }
 
   onSubmit() {
-    this.imageService.addImage(this.form.value.name, this.form.value.image);
+    this.imageService.addImage(this.form.value.name, this.form.value.image, this.auth.getUserDetails().name); //this is all good here
     this.form.reset();
     this.imageData = null;
   }
