@@ -1,0 +1,11 @@
+<h1> All Images </h1>
+<hr />
+<div *ngIf="images.length > 0">
+  <div *ngFor="let image of images" class="image">
+    <img [src]="image.filePath" [alt]="image.name">
+    <div>
+      <span>{{ image.name }}</span>
+      <button (click) = "onDelete(image.filePath)" > DELETE </button>
+    </div>
+  </div>
+</div>
