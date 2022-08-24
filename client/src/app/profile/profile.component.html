@@ -13,6 +13,21 @@
           <p class="form-control-static">{{ details?.email }}</p>
         </div>
       </div>
+
+      <div *ngIf="images.length > 0">
+        <div *ngFor="let image of images" class="image">
+          <div *ngIf="image.postedBy==details?.name">
+            <div class="gallery">
+              <img [src]="image.filePath" [alt]="image.name">
+              <div class="desc">Image: {{ image.name }}</div>
+              <div class="desc">Posted by {{ image.postedBy }}</div>
+              <div class="desc">
+                <button (click) = "onDelete(image.filePath)" > DELETE </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

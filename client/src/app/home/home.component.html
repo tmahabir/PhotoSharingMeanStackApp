@@ -1,8 +1,13 @@
 <div class="container">
-  <h1>Hello there</h1>
+  <h1 *ngIf="!auth.isLoggedIn()">Hi there!</h1>
+  <h1 *ngIf="auth.isLoggedIn()"> Welcome back, {{ auth.getUserDetails()?.name }}!</h1>
 
-  <p>
-    Won't you please <a routerLink="/login">sign in</a> or
-    <a routerLink="/register">register</a>?
+  <p *ngIf="!auth.isLoggedIn()">
+    Please <a routerLink="/login">sign in</a> or
+    <a routerLink="/register">register</a>!
+  </p>
+  <p *ngIf="auth.isLoggedIn()">
+    You are already logged in! Go to <a routerLink="/profile">your profile</a>,
+    <a routerLink="/upload">upload images</a> or view <a routerLink="/show">existing images</a>!
   </p>
 </div>
