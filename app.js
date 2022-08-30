@@ -30,7 +30,7 @@ app.use(cors());
 app.use(passport.initialize());
 app.use("/api", routesApi);
 
-app.use('api/images', express.static(path.join('images')));
+app.use('/api/images', express.static(path.join('./api/images')));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

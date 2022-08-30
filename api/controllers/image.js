@@ -17,7 +17,7 @@ module.exports.deleteImage = async (req, res) => {
 module.exports.uploadImage = async (req, res) => {
     const name = req.body.name;
     const postedBy = req.body.postedBy;
-    const filePath = 'http://localhost:4200/images/' + req.file.filename; //this will be filePath value
+    const filePath = 'http://localhost:3000/api/images/' + req.file.filename; //this will be filePath value
 
     const image = new Image({
         name,
